@@ -68,7 +68,7 @@ public class EmployeeRepository(IDbConnectionFactory connectionFactory) : IEmplo
                 IS_ACTIVE = @IsActive
             WHERE ID = @Id";
 
-        using var connection = connectionFactory.CreateConnection();
+        using var connection = connectionFactory.CreateConnection()
         var affectedRows = await connection.ExecuteAsync(sql, new
         {
             Id = id,
